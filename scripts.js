@@ -27,7 +27,9 @@ $(document).ready(function() {
  		 		
  		var newContact = {firstName: inputtedFirstName,
  						  lastName: inputtedLastName,
- 						  addresses: []
+ 						  addresses: [],
+ 						  phones: [],
+ 						  emails: []
  						  };
 
  		$('.new-address').each(function(){
@@ -42,6 +44,12 @@ $(document).ready(function() {
  			newContact.addresses.push(newAddress);
  		});
 
+ 		var inputtedPhone = $('.new-phone').val();
+ 		var inputtedEmail = $('.new-email').val();
+ 		newContact.phones.push(inputtedPhone);
+ 		newContact.emails.push(inputtedEmail);
+
+
  		$('#contact').append('<li><span class="contact">' + newContact.firstName + " " + newContact.lastName +'</span></li>');
 
 
@@ -54,9 +62,17 @@ $(document).ready(function() {
  			newContact.addresses.forEach(function(address){
  				$('#addresses').append('<li>' + address.street +" "+ address.city + " " + address.state + '</li>');
  			});
+
+ 			$('#phone-numbers').text("");
+ 			newContact.phones.forEach(function(phone){
+ 				$('#phone-numbers').append('<li>' + phone + '</li>');
+ 			});
+
+ 			$('#emails').text("");
+ 			newContact.emails.forEach(function(email){
+ 				$('#emails').append('<li>' + email + '</li>');
+ 			});
  			$('#show-contact').show();
  		});
  	});
-
-
 });
