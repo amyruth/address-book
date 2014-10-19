@@ -18,6 +18,26 @@ $(document).ready(function() {
 					            '</div>'
 					          	);
 	});
+
+	$('#add-phone').click(function(){
+		$('#new-contact-numbers').append('<div class="new-contact-number">'+
+                							'<div class="form-group">'+
+							                  '<label for="new-phone">Phone</label>'+
+							                  '<input type="text" class="form-control new-phone">'+
+							                '</div>'+
+							             '</div>'
+							             );
+	});
+
+	$('#add-email').click(function(){
+		$('#new-emails').append('<div class="new-emailaddr">'+
+                							'<div class="form-group">'+
+							                  '<label for="new-email">Email</label>'+
+							                  '<input type="text" class="form-control new-email">'+
+							                '</div>'+
+							             '</div>'
+							             );
+	});
 	
 	$('#new-contact').submit(function(event){
  		event.preventDefault();
