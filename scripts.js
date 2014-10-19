@@ -8,7 +8,7 @@ $(document).ready(function() {
                 
 					                '<div class="form-group">'+
 					                 ' <label for="new-city">City</label>'+
-					                 ' <input type="text" class="form-control new-street">'+
+					                 ' <input type="text" class="form-control new-city">'+
 					               ' </div>'+
 
 					                '<div class="form-group">'+
@@ -24,8 +24,7 @@ $(document).ready(function() {
 
  		var inputtedFirstName = $('#new-first-name').val();
  		var inputtedLastName = $('#new-last-name').val();
- 		var inputtedAddress = $('#new-address').val();
- 		
+ 		 		
  		var newContact = {firstName: inputtedFirstName,
  						  lastName: inputtedLastName,
  						  addresses: []
@@ -35,13 +34,13 @@ $(document).ready(function() {
  			var inputtedStreet = $(this).find('.new-street').val();
  			var inputtedCity = $(this).find('.new-city').val();
  			var inputtedState = $(this).find('.new-state').val();
-
+ 			console.log(inputtedCity);
  			var newAddress = {street: inputtedStreet,
  							  city: inputtedCity,
  							  state: inputtedState
  							  };
  			newContact.addresses.push(newAddress);
- 		})
+ 		});
 
  		$('#contact').append('<li><span class="contact">' + newContact.firstName + " " + newContact.lastName +'</span></li>');
 
@@ -50,7 +49,11 @@ $(document).ready(function() {
  			$('#show-contact h2').text(inputtedFirstName + " " + inputtedLastName);
  			$('.first-name').text(inputtedFirstName);
  			$('.last-name').text(inputtedLastName);
- 			$('.address').text(inputtedAddress);
+
+ 			$('.addresses').text("");
+ 			newContact.addresses.forEach(function(address){
+ 				$('#addresses').append('<li>' + address.street +" "+ address.city + " " + address.state + '</li>');
+ 			});
  			$('#show-contact').show();
  		});
  	});
