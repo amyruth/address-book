@@ -77,7 +77,7 @@ $(document).ready(function() {
  		});
  		
  		$('#contact').append('<li><span class="contact">' + newContact.firstName + " " + newContact.lastName +'</span></li>');
- 		
+
  		$('.contact').click(function(){
  			$('#show-contact h2').text(inputtedFirstName + " " + inputtedLastName);
  			$('.first-name').text(inputtedFirstName);
@@ -99,5 +99,7 @@ $(document).ready(function() {
  			});
  			$('#show-contact').show();
  		});
+
+ 		$('#new-contact')[0].reset();
  	});
 });
