@@ -30,7 +30,7 @@ $(document).ready(function() {
 	});
 
 	$('#add-email').click(function(){
-		$('#new-emails').append('<div class="new-emailaddr">'+
+		$('#new-emails').append('<div class="new-email-address">'+
                 							'<div class="form-group">'+
 							                  '<label for="new-email">Email</label>'+
 							                  '<input type="text" class="form-control new-email">'+
@@ -64,15 +64,20 @@ $(document).ready(function() {
  			newContact.addresses.push(newAddress);
  		});
 
- 		var inputtedPhone = $('.new-phone').val();
- 		var inputtedEmail = $('.new-email').val();
- 		newContact.phones.push(inputtedPhone);
- 		newContact.emails.push(inputtedEmail);
-
-
+ 		$('.new-contact-number').each(function(){
+ 			var inputtedPhone = $(this).find('.new-phone').val();
+ 			var newPhone = {phone: inputtedPhone};
+ 			newContact.phones.push(newPhone);
+ 		});
+ 		
+ 		$('.new-email-address').each(function(){
+ 			var inputtedEmail = $(this).find('.new-email').val();
+ 			var newEmail = {email: inputtedEmail};
+ 			newContact.emails.push(newEmail);
+ 		});
+ 		
  		$('#contact').append('<li><span class="contact">' + newContact.firstName + " " + newContact.lastName +'</span></li>');
-
-
+ 		
  		$('.contact').click(function(){
  			$('#show-contact h2').text(inputtedFirstName + " " + inputtedLastName);
  			$('.first-name').text(inputtedFirstName);
@@ -85,12 +90,12 @@ $(document).ready(function() {
 
  			$('#phone-numbers').text("");
  			newContact.phones.forEach(function(phone){
- 				$('#phone-numbers').append('<li>' + phone + '</li>');
+ 				$('#phone-numbers').append('<li>' + phone.phone + '</li>');
  			});
 
  			$('#emails').text("");
  			newContact.emails.forEach(function(email){
- 				$('#emails').append('<li>' + email + '</li>');
+ 				$('#emails').append('<li>' + email.email + '</li>');
  			});
  			$('#show-contact').show();
  		});
