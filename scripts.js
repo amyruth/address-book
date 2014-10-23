@@ -91,12 +91,21 @@ $(document).ready(function() {
  			$('#phone-numbers').empty();
  			newContact.phones.forEach(function(phone){
  				$('#phone-numbers').append('<li>' + phone.phone + '</li>');
+ 				
+ 				
  			});
 
  			$('#emails').empty();
  			newContact.emails.forEach(function(email){
  				$('#emails').append('<li>' + email.email + '</li>');
  			});
+
+ 			$('li').each(function(){
+ 					if($(this).html() == ""){
+ 						$(this).remove();
+ 					}
+ 				});
+ 			
  			$('#show-contact').show();
  		});
 
