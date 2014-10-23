@@ -83,18 +83,18 @@ $(document).ready(function() {
  			$('.first-name').text(inputtedFirstName);
  			$('.last-name').text(inputtedLastName);
 
+ 			$('#addresses').empty();
  			newContact.addresses.forEach(function(address){
- 				$('#addresses').empty();
  				$('#addresses').append('<li>' + address.street +" "+ address.city + " " + address.state + '</li>');
  			});
 
+ 			$('#phone-numbers').empty();
  			newContact.phones.forEach(function(phone){
- 				$('#phone-numbers').empty();
  				$('#phone-numbers').append('<li>' + phone.phone + '</li>');
  			});
 
+ 			$('#emails').empty();
  			newContact.emails.forEach(function(email){
- 				$('#emails').empty();
  				$('#emails').append('<li>' + email.email + '</li>');
  			});
  			$('#show-contact').show();
