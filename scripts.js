@@ -78,23 +78,23 @@ $(document).ready(function() {
  		
  		$('#contact').append('<li><span class="contact">' + newContact.firstName + " " + newContact.lastName +'</span></li>');
 
- 		$('.contact').click(function(){
+ 		$('.contact').last().click(function(){
  			$('#show-contact h2').text(inputtedFirstName + " " + inputtedLastName);
  			$('.first-name').text(inputtedFirstName);
  			$('.last-name').text(inputtedLastName);
 
- 			$('.addresses').text("");
  			newContact.addresses.forEach(function(address){
+ 				$('#addresses').empty();
  				$('#addresses').append('<li>' + address.street +" "+ address.city + " " + address.state + '</li>');
  			});
 
- 			$('#phone-numbers').text("");
  			newContact.phones.forEach(function(phone){
+ 				$('#phone-numbers').empty();
  				$('#phone-numbers').append('<li>' + phone.phone + '</li>');
  			});
 
- 			$('#emails').text("");
  			newContact.emails.forEach(function(email){
+ 				$('#emails').empty();
  				$('#emails').append('<li>' + email.email + '</li>');
  			});
  			$('#show-contact').show();
