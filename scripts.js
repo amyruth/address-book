@@ -105,10 +105,11 @@ $(document).ready(function() {
  				});
  			
  			$('#show-contact').show();
- 			$('.extra').remove();
+ 			
  		});
 
 
  		$('#new-contact')[0].reset();
+ 		$('.extra').remove();
  	});
 });
