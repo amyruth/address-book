@@ -105,9 +105,7 @@ $(document).ready(function() {
  				});
  			
  			$('#show-contact').show();
- 			
  		});
-
 
  		$('#new-contact')[0].reset();
  		$('.extra').remove();
