@@ -99,7 +99,7 @@ $(document).ready(function() {
  			});
 
  			$('li').each(function(){
- 					if($(this).html() == ""){
+ 					if($(this).html() === ""){
  						$(this).remove();
  					}
  				});
