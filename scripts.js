@@ -1,17 +1,17 @@
 $(document).ready(function() {
 	$('#add-address').click(function(){
-		$('#new-addresses').append('<div class="new-address">' +
+		$('#new-addresses').append('<div class="new-address extra">' +
 					                  '<div class="form-group">' +
 					                    '<label for="new-street">Street</label>' +
 					                    '<input type="text" class="form-control new-street">' +
 					                '</div>'+
                 
-					                '<div class="form-group">'+
+					                '<div class="form-group extra">'+
 					                 ' <label for="new-city">City</label>'+
 					                 ' <input type="text" class="form-control new-city">'+
 					               ' </div>'+
 
-					                '<div class="form-group">'+
+					                '<div class="form-group extra">'+
 					                  '<label for="new-state">State</label>'+
 					                 ' <input type="text" class="form-control new-state">'+
 					                '</div>'+
@@ -20,7 +20,7 @@ $(document).ready(function() {
 	});
 
 	$('#add-phone').click(function(){
-		$('#new-contact-numbers').append('<div class="new-contact-number">'+
+		$('#new-contact-numbers').append('<div class="new-contact-number extra">'+
                 							'<div class="form-group">'+
 							                  '<label for="new-phone">Phone</label>'+
 							                  '<input type="text" class="form-control new-phone">'+
@@ -30,7 +30,7 @@ $(document).ready(function() {
 	});
 
 	$('#add-email').click(function(){
-		$('#new-emails').append('<div class="new-email-address">'+
+		$('#new-emails').append('<div class="new-email-address extra">'+
                 							'<div class="form-group">'+
 							                  '<label for="new-email">Email</label>'+
 							                  '<input type="text" class="form-control new-email">'+
@@ -91,8 +91,6 @@ $(document).ready(function() {
  			$('#phone-numbers').empty();
  			newContact.phones.forEach(function(phone){
  				$('#phone-numbers').append('<li>' + phone.phone + '</li>');
- 				
- 				
  			});
 
  			$('#emails').empty();
@@ -107,7 +105,9 @@ $(document).ready(function() {
  				});
  			
  			$('#show-contact').show();
+ 			$('.extra').remove();
  		});
+
 
  		$('#new-contact')[0].reset();
  	});
